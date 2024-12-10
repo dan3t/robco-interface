@@ -1,17 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import './App.css';
+import NodesTable from './components/nodes/NodesTable';
 
 function App() {
-  const [nodes, setNodes] = useState([]);
   const [tab, setTab] = useState('servers');
-
-  useEffect(() => {
-    // Подключаемся к нашему API
-    fetch('http://150.241.97.114:3000/api/nodes')
-        .then(res => res.json())
-        .then(data => setNodes(data))
-        .catch(err => console.error('Error fetching nodes:', err));
-  }, []);
 
   return (
       <div className="terminal">
@@ -38,29 +30,7 @@ function App() {
 
           <main>
             {tab === 'servers' ? (
-                <div className="servers-view">
-                  <h3>CONNECTED NODES:</h3>
-                  {nodes.length === 0 ? (
-                      <p>SCANNING FOR NODES...</p>
-                  ) : (
-                      nodes.map(node => (
-                          <div key={node.node_id} className="node-item">
-                            <div className="node-header">
-                      <span className={`status ${node.status.toLowerCase()}`}>
-                        {node.status}
-                      </span>
-                              <span className="node-id">ID: {node.node_id}</span>
-                            </div>
-                            <div className="node-details">
-                              <p>User: {node.username}</p>
-                              <p>Points: {node.points}</p>
-                              <p>Server: {node.server_name}</p>
-                              <p>Last Update: {new Date(node.last_update).toLocaleString()}</p>
-                            </div>
-                          </div>
-                      ))
-                  )}
-                </div>
+                <NodesTable />
             ) : (
                 <div className="accounts-view">
                   <h3>ACCOUNTS SYSTEM</h3>

@@ -119,3 +119,122 @@ button.active {
   pointer-events: none;
   animation: scanline 8s linear infinite;
 }
+
+/* Добавьте в App.css */
+.nodes-container {
+  padding: 20px;
+}
+
+.stats-panel {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+  margin-bottom: 30px;
+}
+
+.stat-item {
+  display: flex;
+  align-items: center;
+  padding: 15px;
+  border: 2px solid #ffd52c;
+  gap: 15px;
+}
+
+.stat-icon {
+  color: #ffd52c;
+}
+
+.stat-info {
+  flex-grow: 1;
+}
+
+.stat-label {
+  font-size: 0.8em;
+  opacity: 0.8;
+}
+
+.stat-value {
+  font-size: 1.5em;
+  font-weight: bold;
+}
+
+.text-green {
+  color: #4afa4a;
+}
+
+.text-red {
+  color: #ff4444;
+}
+
+.nodes-table {
+  border: 2px solid #ffd52c;
+  margin-top: 20px;
+}
+
+.nodes-table table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.nodes-table th {
+  background: rgba(255, 213, 44, 0.1);
+  padding: 15px;
+  text-align: left;
+  cursor: pointer;
+}
+
+.nodes-table th:hover {
+  background: rgba(255, 213, 44, 0.2);
+}
+
+.nodes-table td {
+  padding: 12px 15px;
+  border-top: 1px solid rgba(255, 213, 44, 0.2);
+}
+
+.node-row {
+  transition: background-color 0.2s;
+}
+
+.node-row:hover {
+  background: rgba(255, 213, 44, 0.05);
+}
+
+.status-badge {
+  padding: 5px 10px;
+  border-radius: 3px;
+  font-size: 0.9em;
+  font-weight: bold;
+}
+
+.status-badge.online {
+  background: rgba(74, 250, 74, 0.1);
+  color: #4afa4a;
+  border: 1px solid #4afa4a;
+}
+
+.status-badge.offline {
+  background: rgba(255, 68, 68, 0.1);
+  color: #ff4444;
+  border: 1px solid #ff4444;
+}
+
+.last-update {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: rgba(255, 213, 44, 0.8);
+}
+
+@keyframes nodeUpdate {
+  0% {
+    background: rgba(255, 213, 44, 0.2);
+  }
+  100% {
+    background: transparent;
+  }
+}
+
+.node-row.updated {
+  animation: nodeUpdate 2s ease-out;
+}
