@@ -6,8 +6,18 @@
   box-sizing: border-box;
 }
 
+:root {
+  --amber-primary: #ffd52c;
+  --amber-bright: #ffe75c;
+  --amber-dim: rgba(255, 213, 44, 0.7);
+  --background-dark: #0a0a0a;
+  --background-light: #1a1a1a;
+  --status-online: #4afa4a;
+  --status-offline: #ff4444;
+}
+
 body {
-  background-color: #111;
+  background-color: var(--background-dark);
   font-family: 'Share Tech Mono', monospace;
   color: #ffd52c;
 }
@@ -15,8 +25,10 @@ body {
 .terminal {
   min-height: 100vh;
   padding: 20px;
-  background-color: #1a1a1a;
-  text-shadow: 0 0 5px #ffd52c;
+  background-color: var(--background-dark);
+  color: var(--amber-bright);
+  text-shadow: 0 0 8px var(--amber-primary);
+  letter-spacing: 0.5px;
 }
 
 .container {
@@ -177,10 +189,10 @@ button.active {
 }
 
 .nodes-table th {
-  background: rgba(255, 213, 44, 0.1);
   padding: 15px;
-  text-align: left;
-  cursor: pointer;
+  background-color: var(--amber-primary);
+  color: var(--background-dark);
+  font-weight: bold;
 }
 
 .nodes-table th:hover {
@@ -188,8 +200,9 @@ button.active {
 }
 
 .nodes-table td {
-  padding: 12px 15px;
-  border-top: 1px solid rgba(255, 213, 44, 0.2);
+  padding: 15px;
+  background-color: var(--background-light);
+  border: 1px solid var(--amber-dim);
 }
 
 .node-row {
@@ -208,15 +221,15 @@ button.active {
 }
 
 .status-badge.online {
-  background: rgba(74, 250, 74, 0.1);
-  color: #4afa4a;
-  border: 1px solid #4afa4a;
+  background: rgba(74, 250, 74, 0.2);
+  color: var(--status-online);
+  text-shadow: 0 0 8px var(--status-online);
 }
 
 .status-badge.offline {
-  background: rgba(255, 68, 68, 0.1);
-  color: #ff4444;
-  border: 1px solid #ff4444;
+  background: rgba(255, 68, 68, 0.2);
+  color: var(--status-offline);
+  text-shadow: 0 0 8px var(--status-offline);
 }
 
 .last-update {
